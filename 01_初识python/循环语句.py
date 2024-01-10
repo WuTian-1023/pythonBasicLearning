@@ -18,5 +18,5 @@ str = "我是超人强,越超人越强"
 for c in str:
     print(c)
 # 从1到100 一次进1  从m->n 不包含n
-for i in range(1,101,1):
+for i in range(1, 101, 1):
     print(i)
