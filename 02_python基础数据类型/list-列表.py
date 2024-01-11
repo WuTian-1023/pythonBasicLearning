@@ -104,4 +104,5 @@ for item in temp:
     lst.remove(item)
 print(lst)
 
-
+# 安全稳妥的删除方式
+# 将要删除的内容保存在新的列表中
