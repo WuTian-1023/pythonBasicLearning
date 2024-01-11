@@ -86,3 +86,22 @@ vowels.sort(reverse=True)
 # 输出结果
 # print('降序输出:')
 # print(vowels)
+
+# 列表的循环删除
+lst = ['张三', '李四', '王五', '马六', '赵启', '李浩']
+for item in lst:
+    if item.startswith("张"):
+        lst.remove(item)
+print(lst) # 李浩没删掉
+
+# 新增temp来接收
+lst = ['张三', '李四', '王五', '马六', '赵启', '李浩']
+temp = []
+for item in lst:
+    if item.startswith("李"):
+        temp.append(item)
+for item in temp:
+    lst.remove(item)
+print(lst)
+
+
