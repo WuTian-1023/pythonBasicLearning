@@ -53,36 +53,34 @@ print(sort1)
 i = func(lst[0])
 print(i)
 
-lst = sorted(lst, key=lambda name: len(name)) # 按照名字的长度排序
+lst = sorted(lst, key=lambda name: len(name))  # 按照名字的长度排序
 print(lst)
 
-
-
 lst = [
-    {"id":1,"name":"周润发","age":18, "salary":30000,"city":"北京"},
-    {"id":2,"name":"周星驰","age":28, "salary":20000,"city":"上海"},
-    {"id":3,"name":"周杰伦","age":38, "salary":10000,"city":"深圳"},
-    {"id":4,"name":"周树人","age":48, "salary":5000,"city":"广州"},
-    {"id":5,"name":"周扒皮","age":58, "salary":2000,"city":"杭州"},
+    {"id": 1, "name": "周润发", "age": 18, "salary": 30000, "city": "北京"},
+    {"id": 2, "name": "周星驰", "age": 28, "salary": 20000, "city": "上海"},
+    {"id": 3, "name": "周杰伦", "age": 38, "salary": 10000, "city": "深圳"},
+    {"id": 4, "name": "周树人", "age": 48, "salary": 5000, "city": "广州"},
+    {"id": 5, "name": "周扒皮", "age": 58, "salary": 2000, "city": "杭州"},
 ]
 
 # 根据每个人的年龄进行排序
-lst = sorted(lst,key=lambda dic:dic["age"])
+lst = sorted(lst, key=lambda dic: dic["age"])
 print(lst)
 
 # 根据每个人的薪资进行排序
-lst = sorted(lst,key=lambda dic:dic["salary"], reverse=True) # 按照薪资降序排序
+lst = sorted(lst, key=lambda dic: dic["salary"], reverse=True)  # 按照薪资降序排序
 print(lst)
 
 # filter 过滤
 lst = ["李白", "杜甫", "王安石", "苏轼", "李商隐", "蒙娜丽莎", "张三丰", "易"]
-lst = filter(lambda name:not name.startswith("李") , lst)
+lst = filter(lambda name: not name.startswith("李"), lst)
 print(list(lst))
 
 # map 映射
-lst = [1,2,3,4,5,6,7,8,9,0]
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 ret = [item * item for item in lst]
 print(ret)
 
-lst = map(lambda item:item * item, lst) # map函数返回的是一个迭代器
+lst = map(lambda item: item * item, lst)  # map函数返回的是一个迭代器
 print(list(lst))

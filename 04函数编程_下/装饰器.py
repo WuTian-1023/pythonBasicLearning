@@ -140,35 +140,45 @@ def play_game5(a):
         ret = a(*args, **kwargs)
         print("结束玩游戏")
         return ret
+
     return inner
+
+
 @play_game5
 def play_lol():
     print("玩英雄联盟")
     return "人在塔在"
 
 
-lol  = play_lol()
+lol = play_lol()
 print(lol)
 
 ##########一个函数被多个装饰器装饰
 print("一个函数被多个装饰器装饰###########################")
+
+
 def wrapper1(fn):
     def inner(*args, **kwargs):
         print("正在验证权限")
         ret = fn(*args, **kwargs)
         print("权限验证完毕")
         return ret
+
     return inner
+
+
 def wrapper2(fn):
     def inner(*args, **kwargs):
         print("正在验证日志")
         ret = fn(*args, **kwargs)
         print("日志记录完毕")
         return ret
+
     return inner
 
-@wrapper1 # play_lol = wrapper1(play_lol)
-@wrapper2 # play_lol = wrapper2(play_lol) play_lol = wrapper1(wrapper2(play_lol))
+
+@wrapper1  # play_lol = wrapper1(play_lol)
+@wrapper2  # play_lol = wrapper2(play_lol) play_lol = wrapper1(wrapper2(play_lol))
 def play_lol():
     print("玩英雄联盟")
     return "人在塔在"
