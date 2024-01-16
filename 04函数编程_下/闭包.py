@@ -4,13 +4,19 @@
     2.可以将一个局部变量的生命周期延长
     3.可以避免全局变量的污染---->封装
 """
+
+
 def func():
     a = 10
+
     def inner():
         nonlocal a
         a += 1
         return a
+
     return inner
+
+
 inner = func()
 i = inner()
 print(i)
