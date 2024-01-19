@@ -65,7 +65,7 @@ for item in iterator2:
     print(name, year, place, category, language, subtitle, release_date, score, introduction,
           download_link)
 #     保存数据
-    with open("电影天堂.csv", "a", encoding="utf-8") as f:
+    with open("file/text/电影天堂.csv", "a", encoding="utf-8") as f:
         f.write(f"{name},{year},{place},{category},{language},{subtitle},{release_date},{score},{introduction},{download_link}\n")
 
 # 关闭文件和请求

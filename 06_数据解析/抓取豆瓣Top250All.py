@@ -68,7 +68,7 @@ def main():  # 定义一个main函数
             num = item.group("reviews")
             print(f"{name},{daoYan},{year},{score},{num} --第多少 {total} 条")
             # 4.保存数据
-            with open("豆瓣Top250电影.csv", "a", encoding="utf-8") as f:  # a表示追加
+            with open("file/text/豆瓣Top250电影.csv", "a", encoding="utf-8") as f:  # a表示追加
                 f.write(f"{name},{daoYan},{year},{score},{num}\n")
             total += 1
         print(f"第{i + 1}页保存成功 保存了{total}条数据")

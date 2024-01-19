@@ -48,7 +48,7 @@ for item in pattern_findall:
     score = item.group("score")
     num = item.group("reviews")
     # 4.保存数据
-    with open("豆瓣Top250电影前25.csv", "a", encoding="utf-8") as f:  # a表示追加
+    with open("file/text/豆瓣Top250电影前25.csv", "a", encoding="utf-8") as f:  # a表示追加
         f.write(f"{name},{daoYan},{year},{score},{num}\n")
 
 f.close()  # 关闭文件
