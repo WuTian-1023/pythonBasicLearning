@@ -11,17 +11,16 @@ for item in findall:
 
 # search
 search = re.search(r"\d+", "我今年18岁，电话号码是13574412345")
-print(search.group()) # 只会匹配第一次匹配的内容
+print(search.group())  # 只会匹配第一次匹配的内容
 
 # match
 match = re.match(r"\d+", "我今年18岁，电话号码是13574412345")
-print(match) # 只会匹配开头的内容 所以结果是 None
+print(match)  # 只会匹配开头的内容 所以结果是 None
 
 # 预加载 提前把正则表达式编译好
 re_compile = re.compile(r"\d+")
 compile_findall = re_compile.findall("我今年18岁，电话号码是13574412345")
 print(compile_findall)
-
 
 # 想要提取数据必须用()括起来,可以单独起名字
 # (?P<name>正则表达式)

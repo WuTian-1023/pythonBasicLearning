@@ -66,4 +66,4 @@ for item in find_all:
                 f.write(img.content)  # 保存图片
             num += 1
             print(f"{title}的第{num}张图片下载完成!")
-    #break # 测试只爬一个 放开的话就是爬所有
+    # break # 测试只爬一个 放开的话就是爬所有

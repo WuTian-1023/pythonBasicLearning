@@ -64,9 +64,10 @@ for item in iterator2:
     download_link = detail_search.group("DownloadLink")
     print(name, year, place, category, language, subtitle, release_date, score, introduction,
           download_link)
-#     保存数据
+    #     保存数据
     with open("file/text/电影天堂.csv", "a", encoding="utf-8") as f:
-        f.write(f"{name},{year},{place},{category},{language},{subtitle},{release_date},{score},{introduction},{download_link}\n")
+        f.write(
+            f"{name},{year},{place},{category},{language},{subtitle},{release_date},{score},{introduction},{download_link}\n")
 
 # 关闭文件和请求
 detail_html.close()
