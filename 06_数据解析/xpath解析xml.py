@@ -1,6 +1,6 @@
 from lxml import etree
 
-xml = """
+xml ="""
 <book>
     <id>1</id>
     <name>野花遍地香</name>
@@ -24,23 +24,23 @@ xml = """
     </partner>    
 </book>
 """
-etree_xml = etree.XML(xml)
+etree_xml  = etree.XML(xml)
 # ret = etree_xml.xpath("/book") # / 从根节点开始查找
-ret = etree_xml.xpath("/book/name/text()")[0]  # / 从根节点开始查找 text() 获取文本
+ret = etree_xml.xpath("/book/name/text()")[0] # / 从根节点开始查找 text() 获取文本
 print(ret)
 
-ret = etree_xml.xpath("/book/*/nick/text()")  # * 代表任意节点
+ret = etree_xml.xpath("/book/*/nick/text()") # * 代表任意节点
 print(ret)
 
-ret = etree_xml.xpath("/book//nick")  # // 代表多个节点
+ret = etree_xml.xpath("/book//nick") # // 代表多个节点
 print(ret)
 
-ret = etree_xml.xpath("/book/author/nick[@class='jay']/text()")  # @class='jay' 表示属性
+ret = etree_xml.xpath("/book/author/nick[@class='jay']/text()") # @class='jay' 表示属性
 print(ret)
 
-ret = etree_xml.xpath("/book/partner/nick/@id")  # @id 表示属性
+ret = etree_xml.xpath("/book/partner/nick/@id") # @id 表示属性
 print(ret)
 
 # 取ppc的值
-ret = etree_xml.xpath("/book/partner/nick[@id='ppc']/text()")  # @id 表示属性
+ret = etree_xml.xpath("/book/partner/nick[@id='ppc']/text()") # @id 表示属性
 print(ret)

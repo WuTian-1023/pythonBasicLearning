@@ -1,5 +1,4 @@
 from lxml import etree
-
 """
 xml = """""""
 """
