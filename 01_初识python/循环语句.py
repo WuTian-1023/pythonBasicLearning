@@ -20,3 +20,6 @@ for c in str:
 # 从1到100 一次进1  从m->n 不包含n
 for i in range(1, 101, 1):
     print(i)
+
+for i in range(1, 3):
+    print(i)

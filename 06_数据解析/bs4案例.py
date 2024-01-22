@@ -19,7 +19,7 @@ requests_get = requests.get(url, headers=headers, params=data)
 json = requests_get.json()
 list = json["list"]
 # 保存
-f = open("file/text/新发地菜价.json", "w", encoding="utf-8")  # 保存json文件
+f = open("file/text/新发地菜价.csv", "w", encoding="utf-8")  # 保存json文件
 for item in list:
     prodCat = item["prodCat"]
     prodName = item["prodName"]
