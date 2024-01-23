@@ -9,6 +9,7 @@
 
 """
 import os
+import time
 from multiprocessing import Process
 import requests
 from lxml import etree  # xpath解析库
@@ -112,4 +113,9 @@ def process_detail_page(detail_url):
 
 
 if __name__ == '__main__':
+    # 计时
+    start_time = time.time()
     main()
+    end_time = time.time()
+    print(f"耗时：{end_time - start_time}")
+    # 异步保存耗时：7.585883140563965 对比 同步保存耗时：18.70596742630005
