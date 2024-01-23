@@ -55,7 +55,7 @@ def save_data(records):
 
 # 主函数
 if __name__ == '__main__':
-    with ThreadPoolExecutor(3) as executor:
+    with ThreadPoolExecutor(3) as executor:  # 创建一个线程池 3个线程
         futures = []
         for i in range(1, 4):  # 假设有3页数据需要抓取 温柔一点别被拉黑ip了
             future = executor.submit(get_data, i)

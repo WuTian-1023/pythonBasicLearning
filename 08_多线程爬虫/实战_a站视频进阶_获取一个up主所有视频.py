@@ -10,7 +10,7 @@ import re
 from lxml import etree  # xpath解析库
 from 实战_a站视频 import main
 
-# 1.确定url地址
+# 1.确定url地址  如果要下在别的up主的视频，只需要修改url地址即可
 url = "https://www.acfun.cn/u/56776847"
 # 详情页前缀   /v/ac43577708 ->  https://www.acfun.cn/v/ac43560414
 prefix_url = "https://www.acfun.cn"
@@ -63,16 +63,6 @@ for i in range(2, page + 1): # 从第二页开始 因为第一页已经装了
     requests_get.encoding = "utf-8"
     html = requests_get.text
     # 解析数据 使用正则
-    """
-    这段代码使用了正则表达式href="([^"]+)"，其中：
-    
-    href="：匹配字面字符串href="。
-    ([^"]+)：匹配并捕获一次或多次不是引号"的任意字符。[^"]表示匹配除了双引号以外的任意字符，+表示匹配前面的子表达式一次或多次。
-    "：字面上匹配一个双引号，表示href属性值的结束。
-    matches.group(1)返回第一个括号中匹配的文本，即href属性的值。
-    
-    这个正则表达式假设href的值不包含双引号
-    """
     hrefs = re.findall(r'href=\\"(.*?)"', html, re.S)
     for href in hrefs:
         # href /v/ac42368063\\ 去 \\
