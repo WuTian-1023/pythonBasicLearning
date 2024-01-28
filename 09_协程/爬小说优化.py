@@ -71,4 +71,4 @@ if __name__ == '__main__':
     url = "https://www.biquge635.com/book/40420/"
     asyncio.run(main(url))
     end_time = time.time()
-    print(f"耗时：{end_time - start_time}")  # 耗时：76.5492959022522 chatgpt代码
+    print(f"耗时：{end_time - start_time}")  # 耗时：76.5492959022522s chatgpt代码
