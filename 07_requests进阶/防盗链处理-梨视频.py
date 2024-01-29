@@ -61,7 +61,7 @@ def download_video(video_url, contId):
     video_get = requests.get(url=video_url)
     video_get.encoding = "utf-8"
     video = video_get.content
-    with open(f"file/video/梨视频{contId}.mp4", "wb") as f:
+    with open(f"file/video/梨视频{contId}.mp4", "wb") as f: # 保存视频 wb 二进制写入 防止视频损坏
         f.write(video)
     print("下载完成")
 
