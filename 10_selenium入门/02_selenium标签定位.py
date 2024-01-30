@@ -12,7 +12,7 @@ if __name__ == '__main__':
     # 豆瓣
     webdriver.get("https://movie.douban.com/")
 
-    # 1.通过id定位
+    # 1.通过class name定位
     element = webdriver.find_element("class name", "nav-logo")  # 通过class name定位，获得的是一个标签对象
     print(element.text)  # 豆瓣电影
 
@@ -57,5 +57,17 @@ if __name__ == '__main__':
     element = webdriver.find_element("partial link text", "读书")  # 通过部分链接文本定位
     print(element.get_attribute("href"))  # https://www.douban.com/
 
+    # 8.模糊查询 包含豆瓣的所有标签
+    elements = webdriver.find_elements("partial link text", "豆瓣")
+    for element in elements:
+        print(element.get_attribute("href"))  # https://www.douban.com/
+
+    # 9.通过h2标签定位
+    element = webdriver.find_element("tag name", "h2")
+    print(element.text)  # 豆瓣电影
+
+    # 10.通过id定位
+    element = webdriver.find_element("id", "inp-query")
+    print(element.get_attribute("placeholder"))  # 搜索电影、电视剧、综艺、影人 element.get_attribute()获取属性值
 
 
