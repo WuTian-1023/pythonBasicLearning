@@ -87,8 +87,8 @@ if __name__ == '__main__':
     # 点击账号密码登录
     webdriver.find_element("xpath", "//ul[@class='tab-start']").click()
     # 设置账号密码 id="username" id="password"
-    webdriver.find_element("id", "username").send_keys("17711743029")
-    webdriver.find_element("id", "password").send_keys("mm123456")
+    webdriver.find_element("id", "username").send_keys("17*******29")
+    webdriver.find_element("id", "password").send_keys("********")
     # 点击登录
     webdriver.find_element("class name", "btn-account").click()
     # 有滑条的页面，需要滑动滑条
