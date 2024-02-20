@@ -22,18 +22,25 @@ class MeinvSpider(scrapy.Spider):
 
     # cookie用于模仿浏览器行为
     cookie = {
-        "t": "d2f08dc16b55757689da08f387a1351d",
-        "r": "2454",
-        "Hm_lvt_f5329ae3e00629a7bb8ad78d0efb7273": "1708331981",
-        "Hm_lpvt_f5329ae3e00629a7bb8ad78d0efb7273": "1708341100",
-        "arp_scroll_position": "0",
+        "t": "173d9d44f3cb8f7029f8e1c7a6ef0ebd",
+        "r": "6653",
+        "Hm_lvt_f5329ae3e00629a7bb8ad78d0efb7273": "1708331981,1708391997",
+        "arp_scroll_position": "900",
+        "Hm_lpvt_f5329ae3e00629a7bb8ad78d0efb7273": "1708394631",
+    }
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Referer": "https://www.tupianzj.com/meinv/",
     }
 
     def start_requests(self):  # 重构start_requests函数
         """
         重构start_requests函数，用于发送带有cookie的请求，模仿浏览器行为
         """
-        yield scrapy.Request("https://www.tupianzj.com/meinv/siwa/", callback=self.parse, cookies=self.cookie)
+        yield scrapy.Request("https://www.tupianzj.com/meinv/siwa/", callback=self.parse, cookies=self.cookie,
+                             headers=self.headers)
 
     def parse(self, response, **kwargs):
         print(response.text)
@@ -43,6 +50,20 @@ class MeinvSpider(scrapy.Spider):
             yield scrapy.Request(
                 url=response.urljoin(href),
                 callback=self.parse_detail,  # 将parse_detail作为回调函数
+                cookies=self.cookie
+            )
+        # 翻页
+        # 获取下一页的链接
+        next_url = response.xpath("//a[text()='下一页']/@href").extract_first()
+        # 判断是否有下一页 如果有就继续爬取 如果没有就结束  next_url = javascript:dPlayNext(); 就代表没有了
+        if next_url != "javascript:dPlayNext();":
+            # 如果有下一页
+            # 拼接下一页的链接
+            next_url = response.urljoin(next_url)
+            # 发送请求
+            yield scrapy.Request(
+                url=next_url,
+                callback=self.parse,
                 cookies=self.cookie
             )
 
